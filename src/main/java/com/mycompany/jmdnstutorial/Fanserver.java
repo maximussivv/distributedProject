@@ -16,7 +16,7 @@ import javax.jmdns.ServiceInfo;
  * client the current date and time, then closes the connection with that
  * client. Arguably just about the simplest server you can write.
  */
-public class DateServer {
+public class Fanserver {
 
     /**
      * Runs the server.
@@ -30,7 +30,7 @@ public class DateServer {
                 JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
                 
                 // Register a service
-                ServiceInfo serviceInfo = ServiceInfo.create("_http._tcp.local.", "DateServer", 9090, "can't be empty?");
+                ServiceInfo serviceInfo = ServiceInfo.create("_http._tcp.local.", "DateServer", 9091, "can't be empty?");
                 jmdns.registerService(serviceInfo);
                 System.out.println("Service is registered");
                 while (true) {
@@ -48,7 +48,7 @@ public class DateServer {
                 listener.close();
             }
         }   catch (IOException ex) {
-            Logger.getLogger(DateServer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Fanserver.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
